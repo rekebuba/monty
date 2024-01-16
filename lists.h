@@ -13,5 +13,6 @@
 #define DO_INDEX -1
 
 void requirement(int argc, char **args);
+void push(stack_t **stack, unsigned int line);
 
 #endif
