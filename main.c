@@ -28,19 +28,20 @@ void requirement(int argc, char **args)
     unsigned int line = 1;
     instruction_t instruction[] = {
         {"push", push},
-        {NULL, NULL}
-        };
+        {NULL, NULL}};
     while (fgets(buffer, sizeof(buffer), file) != NULL)
     {
         data.line_count++;
-        buffer[strcspn(buffer, "\n")] = '\0';
+        data.word = tokenize(buffer);
+
+        /*buffer[strcspn(buffer, "\n")] = '\0';
 
         data.line = strtok(buffer, " ");
         while (data.line != NULL)
         {
             data.word[index++] = data.line;
             data.line = strtok(NULL, " ");
-        }
+        }*/
         printf("%s\n", data.word[0]);
         for (int i = 0; instruction[i].opcode; i++)
         {
@@ -63,7 +64,13 @@ void requirement(int argc, char **args)
 int convert(char *str)
 {
     int i = 0;
-    while(str[i] != '\0')
+    int len = strlen(str);
+    if (len == 0)
+    {
+        printf("L%d: usage: %s integer\n", data.line_count, data.word[0]);
+        exit(EXIT_FAILURE);
+    }
+    while (str[i] != '\0')
     {
         if (!isdigit(str[i]))
         {
@@ -72,11 +79,48 @@ int convert(char *str)
         }
         i++;
     }
-
+    printf("lets change %s\n", str);
     return (atoi(str));
 }
 
-void push(stack_t **stack , unsigned int line)
+char **tokenize(char *str)
+{
+    int len = strlen(str);
+    char **tokens = malloc(len * sizeof(char *));
+    int index = 0;
+    if (tokens == NULL)
+    {
+        printf("Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
+    int i = 0;
+    tokens[0] = malloc(len * sizeof(char *));
+
+    while (str[i] != '\0')
+    {
+        if (isspace(str[i]))
+        {
+            i++;
+            tokens[0][index++] = '\0';
+            break;
+        }
+        tokens[0][index++] = str[i];
+        i++;
+    }
+    tokens[1] = malloc(len * sizeof(char *));
+    index = 0;
+    while (str[i] != '\0')
+    {
+        if (str[i] == '\n')
+            break;
+        tokens[1][index++] = str[i];
+        i++;
+    }
+    tokens[1][index++] = '\0';
+    return (tokens);
+}
+
+void push(stack_t **stack, unsigned int line)
 {
     return;
 }

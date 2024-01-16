@@ -25,5 +25,7 @@ data_t data = {NULL, NULL, 0, 0};
 void requirement(int argc, char **args);
 void push(stack_t **stack, unsigned int line);
 int convert(char *str);
+char **tokenize(char *str);
+int count_word(char *s);
 
 #endif
