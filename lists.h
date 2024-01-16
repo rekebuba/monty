@@ -16,11 +16,13 @@ typedef struct data_s
 {
     char *line;
     char **word;
+    FILE *file;
     int line_count;
     int value;
 }data_t;
 
-data_t data = {NULL, NULL, 0, 0};
+extern data_t data;
+
 
 void requirement(int argc, char **args);
 void push(stack_t **stack, unsigned int line);
