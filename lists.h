@@ -7,5 +7,11 @@
 #include <ctype.h>
 #include <unistd.h>
 
+#include "main.h"
+
+#define UP_INDEX -1
+#define DO_INDEX -1
+
+void requirement(int argc, char **args);
 
 #endif
