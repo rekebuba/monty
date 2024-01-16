@@ -23,9 +23,8 @@ void requirement(int argc, char **args)
         exit(EXIT_FAILURE);
     }
     char buffer[100];
-    char **tokens = malloc(1020 * sizeof(char *));
+    data.word = malloc(1020 * sizeof(char *));
     int index = 0;
-    instruction_t inst;
     unsigned int line = 1;
     instruction_t instruction[] = {
         {"push", push},
@@ -33,33 +32,51 @@ void requirement(int argc, char **args)
         };
     while (fgets(buffer, sizeof(buffer), file) != NULL)
     {
+        data.line_count++;
         buffer[strcspn(buffer, "\n")] = '\0';
 
-        inst.opcode = strtok(buffer, " ");
-        while (inst.opcode != NULL)
+        data.line = strtok(buffer, " ");
+        while (data.line != NULL)
         {
-            tokens[index++] = inst.opcode;
-            inst.opcode = strtok(NULL, " ");
+            data.word[index++] = data.line;
+            data.line = strtok(NULL, " ");
         }
-        printf("%s\n", tokens[0]);
+        printf("%s\n", data.word[0]);
         for (int i = 0; instruction[i].opcode; i++)
         {
-            if (strcmp(tokens[0], instruction[i].opcode) == 0)
+            if (strcmp(data.word[0], instruction[i].opcode) == 0)
             {
+                data.value = convert(data.word[1]);
+                printf("%d\n", data.value);
                 instruction[i].f(&stack, line);
                 printf("were in\n");
             }
             else
             {
-                printf("L%d: unknown instruction %s\n", line, tokens[0]);
+                printf("L%d: unknown instruction %s\n", line, data.word[0]);
                 exit(EXIT_FAILURE);
             }
         }
-        line++;
     }
 }
+
+int convert(char *str)
+{
+    int i = 0;
+    while(str[i] != '\0')
+    {
+        if (!isdigit(str[i]))
+        {
+            printf("L%d: usage: %s integer\n", data.line_count, data.word[0]);
+            exit(EXIT_FAILURE);
+        }
+        i++;
+    }
+
+    return (atoi(str));
+}
+
 void push(stack_t **stack , unsigned int line)
 {
-
     return;
 }
