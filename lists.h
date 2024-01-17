@@ -32,5 +32,6 @@ char **tokenize(char *str);
 int count_word(char *s);
 void (*functions(char **str))(stack_t **, unsigned int line_number);
 void removeWhiteSpace(char *str);
+void add_node_beg(stack_t **head, int value);
 
 #endif

@@ -12,7 +12,6 @@ void (*functions(char **str))(stack_t **, unsigned int line_number)
         {
             if (strcmp(str[0], instruction[i].opcode) == 0)
             {
-                printf("were in\n");
                 return (instruction[i].f);
             }
         }

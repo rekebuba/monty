@@ -6,8 +6,6 @@ data_t data = {NULL, NULL, NULL, NULL, 0, 0};
 int main(int argc, char **args)
 {
     requirement(argc, args);
-
-    printf("%d\n", argc);
 }
 
 void requirement(int argc, char **args)
@@ -38,58 +36,48 @@ void requirement(int argc, char **args)
             printf("L%d: unknown instruction %s\n", data.line_count, data.word[0]);
             exit(EXIT_FAILURE);
         }
-        printf("%s\n", data.word[0]);
         code_func(&(data.stack), data.line_count);
     }
 }
 
 void pall(stack_t **stack, unsigned int line)
 {
-    return;
+    stack_t *ptr = *stack;
+    while (ptr != NULL)
+    {
+        printf("%d\n", ptr->n);
+        ptr = ptr->next;
+    }
 }
-void push(stack_t **stack, unsigned int line)
+void push(stack_t **head, unsigned int line)
 {
     data.value = convert(data.word[1]);
-    printf("%d\n", data.value);
-
-    return;
+    add_node_beg(head, data.value);
 }
 
-void removeWhiteSpace(char *str)
+void add_node_beg(stack_t **head, int value)
 {
-    char *p1 = str; /* pointer to iterate through the input string */
-    char *p2 = str; /* pointer to write the non-space characters to */
-    bool space = false;
-
-    while (isspace(*p1))
+    stack_t *ptr = *head;
+    stack_t *new_node = malloc(sizeof(stack_t));
+    if (new_node == NULL)
     {
-        p1++;
+        printf("Error: malloc failed\n");
+        exit(EXIT_FAILURE);
     }
 
-    while (*p1 != '\0')
-    {
-        if (isspace(*p1))
-        {
-            if (!space)
-            {
-                *p2 = *p1;
-                p2++;
-                space = true;
-            }
-        }
-        else
-        {
-            *p2 = *p1;
-            p2++;
-            space = false;
-        }
-        p1++;
-    }
-
-    if (isspace(*(p2 - 1)))
-    {
-        *(p2 - 1) = '\0';
-    }
-
-    *p2 = '\0';
+	if (ptr == NULL)
+	{
+		new_node->n = data.value;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		*head = new_node;
+	}
+	else
+	{
+		new_node->n = data.value;
+		new_node->next = ptr;
+		ptr->prev = new_node;
+		new_node->prev = NULL;
+		*head = new_node;
+	}
 }
