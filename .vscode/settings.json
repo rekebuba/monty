@@ -3,7 +3,7 @@
         "main.h": "c",
         "cmath": "c",
         "limits": "c",
-        "lists.h": "c",
+        "monty.h": "c",
         "crtdbg.h": "c",
         "atomic": "c",
         "*.tcc": "c",

@@ -1,5 +1,5 @@
 #include "main.h"
-#include "lists.h"
+#include "monty.h"
 
 /**
  * free_stack - free all the allocated memory

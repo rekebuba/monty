@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "monty.h"
 #include "main.h"
 
 void pint(stack_t **stack, unsigned int line)

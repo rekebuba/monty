@@ -1,5 +1,5 @@
 #include "main.h"
-#include "lists.h"
+#include "monty.h"
 
 /**
  * removeWhiteSpace - helper function used to remove white space

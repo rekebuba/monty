@@ -1,5 +1,5 @@
 #include "main.h"
-#include "lists.h"
+#include "monty.h"
 
 /**
  * tokenize - used to tokenize the argument that is passed

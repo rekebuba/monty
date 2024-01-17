@@ -1,5 +1,5 @@
 #include "main.h"
-#include "lists.h"
+#include "monty.h"
 
 data_t data = {NULL, NULL, NULL, NULL, 0, 0, 0};
 
