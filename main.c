@@ -3,6 +3,13 @@
 
 data_t data = {NULL, NULL, NULL, NULL, 0, 0, 0};
 
+/**
+ * main - the main program
+ * 
+ * @argc: argument count 
+ * @args: arguments passed
+ * Return: int
+ */
 int main(int argc, char **args)
 {
     requirement(argc, args);
@@ -10,6 +17,13 @@ int main(int argc, char **args)
     return (EXIT_SUCCESS);
 }
 
+/**
+ *  requirement - requirement needed to execute
+ * 
+ * @argc: argument count 
+ * @args: arguments passed
+ * Return: void
+ */
 void requirement(int argc, char **args)
 {
     void (*code_func)(stack_t **, unsigned int);

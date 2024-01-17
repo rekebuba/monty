@@ -2,10 +2,10 @@
 #include "lists.h"
 
 /**
- * @brief 
+ * tokenize - used to tokenize the argument that is passed
  * 
- * @param str 
- * @return char** 
+ * @str: the string passed to tokenize
+ * Return: char**
  */
 char **tokenize(char *str)
 {
@@ -49,10 +49,10 @@ char **tokenize(char *str)
 }
 
 /**
- * @brief 
+ * convert - check each character and convert to integer 
  * 
- * @param str 
- * @return int 
+ * @str: the string passed to convert
+ * Return: int
  */
 int convert(char *str)
 {

@@ -1,6 +1,12 @@
 #include "main.h"
 #include "lists.h"
 
+/**
+ * removeWhiteSpace - helper function used to remove white space 
+ * 
+ * @str: the string passed
+ * Return: void 
+ */
 void removeWhiteSpace(char *str)
 {
     char *p1 = str; /* pointer to iterate through the input string */
