@@ -3,7 +3,6 @@
 
 /**
  * pall - used to list the content on the stack/queue
- * 
  * @stack: pointer to the node
  * @line: number of the line in the file
  * Return: void
@@ -21,7 +20,6 @@ void pall(stack_t **stack, unsigned int line)
 
 /**
  * push - used to insert the content on the stack/queue
- * 
  * @head: pointer to the node
  * @line: number of the line in the file
  */
@@ -37,8 +35,7 @@ void push(stack_t **head, unsigned int line)
 
 /**
  * add_node_end - adds node at the end
- * 
- * @stack: pointer to the node
+ * @head: pointer to the node
  * @value: the value that is added
  */
 void add_node_end(stack_t **head, int value)
@@ -72,14 +69,14 @@ void add_node_end(stack_t **head, int value)
 
 /**
  * add_node_beg - adds node at the beginning
- * 
- * @stack: pointer to the node
+ * @head: pointer to the node
  * @value: the value that is added
  */
 void add_node_beg(stack_t **head, int value)
 {
 	stack_t *ptr = *head;
 	stack_t *new_node = malloc(sizeof(stack_t));
+
 	if (new_node == NULL)
 	{
 		printf("Error: malloc failed\n");

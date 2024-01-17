@@ -5,8 +5,7 @@ data_t data = {NULL, NULL, NULL, NULL, 0, 0, 0};
 
 /**
  * main - the main program
- * 
- * @argc: argument count 
+ * @argc: argument count
  * @args: arguments passed
  * Return: int
  */
@@ -19,8 +18,7 @@ int main(int argc, char **args)
 
 /**
  *  requirement - requirement needed to execute
- * 
- * @argc: argument count 
+ * @argc: argument count
  * @args: arguments passed
  * Return: void
  */
@@ -28,6 +26,7 @@ void requirement(int argc, char **args)
 {
 	void (*code_func)(stack_t **, unsigned int);
 	size_t len = 0;
+
 	if (argc != 2)
 	{
 		printf("USAGE: monty file\n");
@@ -45,11 +44,11 @@ void requirement(int argc, char **args)
 		data.line_count++;
 		removeWhiteSpace(data.line);
 		data.word = tokenize(data.line);
-		/*if (data.word[0] == NULL || data.word[0][0] == '#')
+		if (data.word[0] == NULL || data.word[0][0] == '#')
 		{
 			free_stack(0);
 			continue;
-		}*/
+		}
 		code_func = functions(data.word);
 		if (!code_func)
 		{

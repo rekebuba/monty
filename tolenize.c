@@ -58,6 +58,7 @@ int convert(char *str)
 {
 	int i = 0;
 	int len = strlen(str);
+
 	if (len == 0)
 	{
 		printf("L%d: usage: %s integer\n", data.line_count, data.word[0]);

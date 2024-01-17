@@ -3,13 +3,13 @@
 
 /**
  * free_stack - free all the allocated memory
- * 
  * @value: 1 or 0
  * Return: void
  */
 void free_stack(int value)
 {
 	int i;
+
 	if (data.line)
 	{
 		free(data.line);
@@ -40,10 +40,9 @@ void free_stack(int value)
 }
 
 /**
- * free_list - frees the allocated memory for the stack 
- * 
+ * free_list - frees the allocated memory for the stack
  * @head: pointer to the node
- * Return: void 
+ * Return: void
  */
 void free_list(stack_t *head)
 {

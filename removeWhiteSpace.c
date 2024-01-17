@@ -2,10 +2,9 @@
 #include "lists.h"
 
 /**
- * removeWhiteSpace - helper function used to remove white space 
- * 
+ * removeWhiteSpace - helper function used to remove white space
  * @str: the string passed
- * Return: void 
+ * Return: void
  */
 void removeWhiteSpace(char *str)
 {
