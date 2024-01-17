@@ -1,7 +1,7 @@
 #include "main.h"
 #include "lists.h"
 
-void (*functions(char **str))(stack_t **, unsigned int line_number)
+void (*functions(char **str))(stack_t **, unsigned int)
 {
     instruction_t instruction [] = {
         {"push", push},

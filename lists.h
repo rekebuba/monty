@@ -30,8 +30,10 @@ void pall(stack_t **stack, unsigned int line);
 int convert(char *str);
 char **tokenize(char *str);
 int count_word(char *s);
-void (*functions(char **str))(stack_t **, unsigned int line_number);
+void (*functions(char **str))(stack_t **, unsigned int);
 void removeWhiteSpace(char *str);
 void add_node_beg(stack_t **head, int value);
+void free_stack(int value);
+void free_list(stack_t *head);
 
 #endif

@@ -15,11 +15,17 @@ char **tokenize(char *str)
     if (tokens == NULL)
     {
         printf("Error: malloc failed\n");
+        free_stack(1);
         exit(EXIT_FAILURE);
     }
     int i = 0;
     tokens[0] = malloc(len * sizeof(char *));
-
+    if (tokens[0] == NULL)
+    {
+        printf("Error: malloc failed\n");
+        free_stack(1);
+        exit(EXIT_FAILURE);
+    }
     while (str[i] != '\0')
     {
         if (isspace(str[i]))
@@ -32,6 +38,12 @@ char **tokenize(char *str)
         i++;
     }
     tokens[1] = malloc(len * sizeof(char *));
+    if (tokens[1] == NULL)
+    {
+        printf("Error: malloc failed\n");
+        free_stack(1);
+        exit(EXIT_FAILURE);
+    }
     index = 0;
     while (str[i] != '\0')
     {
@@ -57,6 +69,7 @@ int convert(char *str)
     if (len == 0)
     {
         printf("L%d: usage: %s integer\n", data.line_count, data.word[0]);
+        free_stack(1);
         exit(EXIT_FAILURE);
     }
     while (str[i] != '\0')
@@ -64,6 +77,7 @@ int convert(char *str)
         if (!isdigit(str[i]))
         {
             printf("L%d: usage: %s integer\n", data.line_count, data.word[0]);
+            free_stack(1);
             exit(EXIT_FAILURE);
         }
         i++;
