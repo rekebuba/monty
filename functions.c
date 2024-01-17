@@ -9,22 +9,22 @@
  */
 void (*functions(char **str))(stack_t **, unsigned int)
 {
-    int i;
-    instruction_t instruction [] = {
-        {"push", push},
-        {"pall", pall},
-        {"stack", stack_flag},
+	int i;
+	instruction_t instruction [] = {
+		{"push", push},
+		{"pall", pall},
+		{"stack", stack_flag},
 		{"queue", queue_flag},
-        {NULL, NULL}
-    };
-    for (i = 0; instruction[i].opcode; i++)
-        {
-            if (strcmp(str[0], instruction[i].opcode) == 0)
-            {
-                return (instruction[i].f);
-            }
-        }
-    return (NULL);
+		{NULL, NULL}
+	};
+	for (i = 0; instruction[i].opcode; i++)
+		{
+			if (strcmp(str[0], instruction[i].opcode) == 0)
+			{
+				return (instruction[i].f);
+			}
+		}
+	return (NULL);
 }
 
 /**
@@ -35,9 +35,9 @@ void (*functions(char **str))(stack_t **, unsigned int)
  */
 void stack_flag(stack_t **stack, unsigned int line)
 {
-    (void)stack;
+	(void)stack;
 	(void)line;
-    data.flag = 0;
+	data.flag = 0;
 }
 
 /**
@@ -48,7 +48,7 @@ void stack_flag(stack_t **stack, unsigned int line)
  */
 void queue_flag(stack_t **stack, unsigned int line)
 {
-    (void)stack;
+	(void)stack;
 	(void)line;
-    data.flag = 0;
+	data.flag = 0;
 }

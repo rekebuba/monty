@@ -13,13 +13,13 @@
 
 typedef struct data_s
 {
-    char *line;
-    char **word;
-    FILE *file;
-    stack_t *stack;
-    int line_count;
-    int value;
-    int flag;
+	char *line;
+	char **word;
+	FILE *file;
+	stack_t *stack;
+	int line_count;
+	int value;
+	int flag;
 }data_t;
 
 extern data_t data;

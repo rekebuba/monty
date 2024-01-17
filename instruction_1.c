@@ -10,13 +10,13 @@
  */
 void pall(stack_t **stack, unsigned int line)
 {
-    stack_t *ptr = *stack;
-    (void)line;
-    while (ptr != NULL)
-    {
-        printf("%d\n", ptr->n);
-        ptr = ptr->next;
-    }
+	stack_t *ptr = *stack;
+	(void)line;
+	while (ptr != NULL)
+	{
+		printf("%d\n", ptr->n);
+		ptr = ptr->next;
+	}
 }
 
 /**
@@ -27,9 +27,9 @@ void pall(stack_t **stack, unsigned int line)
  */
 void push(stack_t **head, unsigned int line)
 {
-    (void)line;
-    data.value = convert(data.word[1]);
-    if (data.flag == 0)
+	(void)line;
+	data.value = convert(data.word[1]);
+	if (data.flag == 0)
 		add_node_beg(head, data.value);
 	else if (data.flag == 1)
 		add_node_end(head, data.value);
@@ -43,7 +43,7 @@ void push(stack_t **head, unsigned int line)
  */
 void add_node_end(stack_t **head, int value)
 {
-    stack_t *ptr = *head;
+	stack_t *ptr = *head;
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
@@ -78,28 +78,28 @@ void add_node_end(stack_t **head, int value)
  */
 void add_node_beg(stack_t **head, int value)
 {
-    stack_t *ptr = *head;
-    stack_t *new_node = malloc(sizeof(stack_t));
-    if (new_node == NULL)
-    {
-        printf("Error: malloc failed\n");
-        free_stack(1);
-        exit(EXIT_FAILURE);
-    }
+	stack_t *ptr = *head;
+	stack_t *new_node = malloc(sizeof(stack_t));
+	if (new_node == NULL)
+	{
+		printf("Error: malloc failed\n");
+		free_stack(1);
+		exit(EXIT_FAILURE);
+	}
 
-    if (ptr == NULL)
-    {
-        new_node->n = value;
-        new_node->next = NULL;
-        new_node->prev = NULL;
-        *head = new_node;
-    }
-    else
-    {
-        new_node->n = value;
-        new_node->next = ptr;
-        ptr->prev = new_node;
-        new_node->prev = NULL;
-        *head = new_node;
-    }
+	if (ptr == NULL)
+	{
+		new_node->n = value;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		*head = new_node;
+	}
+	else
+	{
+		new_node->n = value;
+		new_node->next = ptr;
+		ptr->prev = new_node;
+		new_node->prev = NULL;
+		*head = new_node;
+	}
 }
