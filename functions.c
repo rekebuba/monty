@@ -16,6 +16,7 @@ void (*functions(char **str))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"add", add},
 		{"sub", sub},
+		{"div", division},
 		{"nop", nop},
 		{"stack", stack_flag},
 		{"queue", queue_flag},
