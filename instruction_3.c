@@ -8,7 +8,35 @@
  */
 void nop(stack_t **stack, unsigned int line)
 {
-    (void)stack;
-    (void)line;
-    return;
+	(void)stack;
+	(void)line;
+	return;
+}
+
+/**
+ * sub - subtracts the top two elements of the stack
+ * @stack: pointer to the node
+ * @line: number of the line in the file
+ */
+void sub(stack_t **stack, unsigned int line)
+{
+	stack_t *ptr = *stack;
+	int count = nod_len(stack);
+	int sub = 0;
+
+	if (count < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line);
+		free_stack(1);
+		exit(EXIT_FAILURE);
+	}
+
+	sub = ptr->n - ptr->next->n;
+	if (sub < 0)
+	{
+		sub *= -1;
+	}
+	pop(stack, line);
+	ptr = *stack;
+	ptr->n = sub;
 }
