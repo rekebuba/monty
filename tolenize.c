@@ -61,7 +61,7 @@ int convert(char *str)
 
 	if (len == 0)
 	{
-		dprintf(STDERR_FILENO, "L%d: usage: %s integer\n",
+		fprintf(stderr, "L%d: usage: %s integer\n",
 		data.line_count, data.word[0]);
 		free_stack(1);
 		exit(EXIT_FAILURE);
@@ -70,7 +70,7 @@ int convert(char *str)
 	{
 		if (!isdigit(str[i]))
 		{
-			dprintf(STDERR_FILENO, "L%d: usage: %s integer\n",
+			fprintf(stderr, "L%d: usage: %s integer\n",
 			data.line_count, data.word[0]);
 			free_stack(1);
 			exit(EXIT_FAILURE);

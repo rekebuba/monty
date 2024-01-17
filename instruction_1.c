@@ -13,7 +13,7 @@ void pall(stack_t **stack, unsigned int line)
 	(void)line;
 	while (ptr != NULL)
 	{
-		printf("%d\n", ptr->n);
+		fprintf(stdout, "%d\n", ptr->n);
 		ptr = ptr->next;
 	}
 }
@@ -79,7 +79,7 @@ void add_node_beg(stack_t **head, int value)
 
 	if (new_node == NULL)
 	{
-		dprintf(STDERR_FILENO, "Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		free_stack(1);
 		exit(EXIT_FAILURE);
 	}
