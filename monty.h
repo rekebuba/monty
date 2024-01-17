@@ -29,6 +29,7 @@ void requirement(int argc, char **args);
 void push(stack_t **stack, unsigned int line);
 void pall(stack_t **stack, unsigned int line);
 void pint(stack_t **stack, unsigned int line);
+void pop(stack_t **stack, unsigned int line);
 int convert(char *str);
 char **tokenize(char *str);
 int count_word(char *s);
@@ -41,6 +42,7 @@ void free_list(stack_t *head);
 void stack_flag(stack_t **stack, unsigned int line);
 void queue_flag(stack_t **stack, unsigned int line);
 
+size_t nod_len(stack_t **h);
 int count_word(char *s);
 ssize_t get_line(char **line_ptr, size_t *n, FILE *stream);
 

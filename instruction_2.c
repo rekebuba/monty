@@ -12,7 +12,54 @@ void pint(stack_t **stack, unsigned int line)
 
 	if (ptr == NULL)
 	{
+		free_stack(1);
 		fprintf(stderr, "L%d: can't pint, stack empty", line);
 	}
 	fprintf(stdout, "%d\n", ptr->n);
+}
+
+/**
+ * pop - removes the top element of the stack
+ * @stack: pointer to the node
+ * @line: number of the line in the file
+ */
+void pop(stack_t **stack, unsigned int line)
+{
+	stack_t *ptr = *stack;
+	stack_t *ptr2 = *stack;
+	if (ptr == NULL)
+	{
+		fprintf(stdout, "L%d: can't pop an empty stack\n", line);
+		free_stack(1);
+		exit(EXIT_FAILURE);
+	}
+	if (ptr->next == NULL)
+	{
+		*stack = NULL;
+	}
+	else
+	{
+		ptr2 = ptr2->next;
+		ptr2->prev = NULL;
+		*stack = ptr2;
+		ptr = NULL;
+	}
+}
+
+/**
+ * dlistint_len - returns the number of elements in a linked  list.
+ * @h: double node
+ * Return: size_t
+ */
+size_t nod_len(stack_t **h)
+{
+	size_t count = 0;
+	const stack_t *temp = *h;
+
+	while (temp != NULL)
+	{
+		count++;
+		temp = temp->next;
+	}
+	return (count);
 }
