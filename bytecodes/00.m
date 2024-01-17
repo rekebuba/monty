@@ -1,1 +1,2 @@
-push 45l
+push 4
+push

@@ -1,7 +1,7 @@
 #include "main.h"
 #include "lists.h"
 
-data_t data = {NULL, NULL, NULL, 0, 0};
+data_t data = {NULL, NULL, NULL, NULL, 0, 0};
 
 int main(int argc, char **args)
 {
@@ -12,13 +12,13 @@ int main(int argc, char **args)
 
 void requirement(int argc, char **args)
 {
-    stack_t *stack = NULL;
     if (argc != 2)
     {
         printf("USAGE: monty file\n");
         exit(EXIT_FAILURE);
     }
     data.file = fopen(args[1], "r");
+    void (*code_func)(stack_t **, unsigned int);
     if (!data.file)
     {
         printf("Error: Can't open file %s\n", args[1]);
@@ -34,7 +34,7 @@ void requirement(int argc, char **args)
     {
         data.line_count++;
         data.word = tokenize(buffer);
-
+        void (*functions(char **str))(stack_t **, unsigned int line_number);
         printf("%s\n", data.word[0]);
         for (int i = 0; instruction[i].opcode; i++)
         {
@@ -42,7 +42,7 @@ void requirement(int argc, char **args)
             {
                 data.value = convert(data.word[1]);
                 printf("%d\n", data.value);
-                instruction[i].f(&stack, data.line_count);
+                instruction[i].f(&data.stack, data.line_count);
                 printf("were in\n");
             }
             else
