@@ -5,7 +5,7 @@
  * functions - a function pointer
  * 
  * @str: double pointer as an argument to the function
- * Return: void 
+ * Return:  
  */
 void (*functions(char **str))(stack_t **, unsigned int)
 {
@@ -24,4 +24,30 @@ void (*functions(char **str))(stack_t **, unsigned int)
             }
         }
     return (NULL);
+}
+
+/**
+ * stack_flag - to flag so that to know which argument passed 
+ * 
+ * @head: pointer to the node
+ * @line: number of the line in the file
+ */
+void stack_flag(stack_t **stack, unsigned int line)
+{
+    (void)stack;
+	(void)line;
+    data.flag = 0;
+}
+
+/**
+ * queue_flag - to flag so that to know which argument passed 
+ * 
+ * @head: pointer to the node
+ * @line: number of the line in the file
+ */
+void queue_flag(stack_t **stack, unsigned int line)
+{
+    (void)stack;
+	(void)line;
+    data.flag = 0;
 }

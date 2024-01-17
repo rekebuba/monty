@@ -36,32 +36,6 @@ void push(stack_t **head, unsigned int line)
 }
 
 /**
- * stack_flag - to flag so that to know which argument passed 
- * 
- * @head: pointer to the node
- * @line: number of the line in the file
- */
-void stack_flag(stack_t **stack, unsigned int line)
-{
-    (void)stack;
-	(void)line;
-    data.flag = 0;
-}
-
-/**
- * queue_flag - to flag so that to know which argument passed 
- * 
- * @head: pointer to the node
- * @line: number of the line in the file
- */
-void queue_flag(stack_t **stack, unsigned int line)
-{
-    (void)stack;
-	(void)line;
-    data.flag = 0;
-}
-
-/**
  * add_node_end - adds node at the end
  * 
  * @stack: pointer to the node
@@ -128,31 +102,4 @@ void add_node_beg(stack_t **head, int value)
         new_node->prev = NULL;
         *head = new_node;
     }
-}
-
-/**
- * count_word - helper function to count the number of words in a string
- * @s: string to evaluate
- *
- * Return: number of words
- */
-int count_word(char *s)
-{
-	int flag, c, w;
-
-	flag = 0;
-	w = 0;
-
-	for (c = 0; s[c] != '\0'; c++)
-	{
-		if (s[c] == ' ')
-			flag = 0;
-		else if (flag == 0)
-		{
-			flag = 1;
-			w++;
-		}
-	}
-
-	return (w);
 }
