@@ -41,5 +41,6 @@ void stack_flag(stack_t **stack, unsigned int line);
 void queue_flag(stack_t **stack, unsigned int line);
 
 int count_word(char *s);
+ssize_t get_line(char **line_ptr, size_t *n, FILE *stream);
 
 #endif

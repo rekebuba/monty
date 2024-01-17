@@ -9,6 +9,7 @@
  */
 void (*functions(char **str))(stack_t **, unsigned int)
 {
+    int i;
     instruction_t instruction [] = {
         {"push", push},
         {"pall", pall},
@@ -16,7 +17,7 @@ void (*functions(char **str))(stack_t **, unsigned int)
 		{"queue", queue_flag},
         {NULL, NULL}
     };
-    for (int i = 0; instruction[i].opcode; i++)
+    for (i = 0; instruction[i].opcode; i++)
         {
             if (strcmp(str[0], instruction[i].opcode) == 0)
             {

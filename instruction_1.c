@@ -11,6 +11,7 @@
 void pall(stack_t **stack, unsigned int line)
 {
     stack_t *ptr = *stack;
+    (void)line;
     while (ptr != NULL)
     {
         printf("%d\n", ptr->n);
@@ -26,9 +27,8 @@ void pall(stack_t **stack, unsigned int line)
  */
 void push(stack_t **head, unsigned int line)
 {
-    stack_t *new;
+    (void)line;
     data.value = convert(data.word[1]);
-    //add_node_beg(head, data.value);
     if (data.flag == 0)
 		add_node_beg(head, data.value);
 	else if (data.flag == 1)
@@ -89,14 +89,14 @@ void add_node_beg(stack_t **head, int value)
 
     if (ptr == NULL)
     {
-        new_node->n = data.value;
+        new_node->n = value;
         new_node->next = NULL;
         new_node->prev = NULL;
         *head = new_node;
     }
     else
     {
-        new_node->n = data.value;
+        new_node->n = value;
         new_node->next = ptr;
         ptr->prev = new_node;
         new_node->prev = NULL;

@@ -9,13 +9,14 @@
  */
 void free_stack(int value)
 {
+    int i;
     if (data.line)
     {
         free(data.line);
         data.line = NULL;
         if (!data.word)
             return;
-        for (int i = 0; data.word[i]; i++)
+        for (i = 0; data.word[i]; i++)
         {
             free(data.word[i]);
         }

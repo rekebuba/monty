@@ -40,7 +40,7 @@ void requirement(int argc, char **args)
         exit(EXIT_FAILURE);
     }
 
-    while (getline(&(data.line), &len, data.file) != EOF)
+    while (get_line(&(data.line), &len, data.file) != EOF)
     {
         data.line_count++;
         removeWhiteSpace(data.line);
