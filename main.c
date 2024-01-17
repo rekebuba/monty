@@ -29,13 +29,13 @@ void requirement(int argc, char **args)
 
 	if (argc != 2)
 	{
-		printf("USAGE: monty file\n");
+		dprintf(STDERR_FILENO, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	data.file = fopen(args[1], "r");
 	if (!data.file)
 	{
-		printf("Error: Can't open file %s\n", args[1]);
+		dprintf(STDERR_FILENO, "Error: Can't open file %s\n", args[1]);
 		exit(EXIT_FAILURE);
 	}
 
@@ -52,7 +52,8 @@ void requirement(int argc, char **args)
 		code_func = functions(data.word);
 		if (!code_func)
 		{
-			printf("L%d: unknown instruction %s\n", data.line_count, data.word[0]);
+			dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n",
+			data.line_count, data.word[0]);
 			free_stack(1);
 			exit(EXIT_FAILURE);
 		}

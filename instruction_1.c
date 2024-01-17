@@ -79,7 +79,7 @@ void add_node_beg(stack_t **head, int value)
 
 	if (new_node == NULL)
 	{
-		printf("Error: malloc failed\n");
+		dprintf(STDERR_FILENO, "Error: malloc failed\n");
 		free_stack(1);
 		exit(EXIT_FAILURE);
 	}
