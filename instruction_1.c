@@ -1,6 +1,13 @@
 #include "lists.h"
 #include "main.h"
 
+/**
+ * pall - used to list the content on the stack/queue
+ * 
+ * @stack: pointer to the node
+ * @line: number of the line in the file
+ * Return: void
+ */
 void pall(stack_t **stack, unsigned int line)
 {
     stack_t *ptr = *stack;
@@ -10,6 +17,13 @@ void pall(stack_t **stack, unsigned int line)
         ptr = ptr->next;
     }
 }
+
+/**
+ * push - used to insert the content on the stack/queue
+ * 
+ * @head: pointer to the node
+ * @line: number of the line in the file
+ */
 void push(stack_t **head, unsigned int line)
 {
     stack_t *new;
@@ -21,6 +35,12 @@ void push(stack_t **head, unsigned int line)
 		add_node_end(head, data.value);
 }
 
+/**
+ * stack_flag - to flag so that to know which argument passed 
+ * 
+ * @head: pointer to the node
+ * @line: number of the line in the file
+ */
 void stack_flag(stack_t **stack, unsigned int line)
 {
     (void)stack;
@@ -28,6 +48,12 @@ void stack_flag(stack_t **stack, unsigned int line)
     data.flag = 0;
 }
 
+/**
+ * queue_flag - to flag so that to know which argument passed 
+ * 
+ * @head: pointer to the node
+ * @line: number of the line in the file
+ */
 void queue_flag(stack_t **stack, unsigned int line)
 {
     (void)stack;
@@ -35,6 +61,12 @@ void queue_flag(stack_t **stack, unsigned int line)
     data.flag = 0;
 }
 
+/**
+ * add_node_end - adds node at the end
+ * 
+ * @stack: pointer to the node
+ * @value: the value that is added
+ */
 void add_node_end(stack_t **head, int value)
 {
     stack_t *ptr = *head;
@@ -64,6 +96,12 @@ void add_node_end(stack_t **head, int value)
 
 }
 
+/**
+ * add_node_beg - adds node at the beginning
+ * 
+ * @stack: pointer to the node
+ * @value: the value that is added
+ */
 void add_node_beg(stack_t **head, int value)
 {
     stack_t *ptr = *head;
@@ -92,6 +130,12 @@ void add_node_beg(stack_t **head, int value)
     }
 }
 
+/**
+ * count_word - helper function to count the number of words in a string
+ * @s: string to evaluate
+ *
+ * Return: number of words
+ */
 int count_word(char *s)
 {
 	int flag, c, w;

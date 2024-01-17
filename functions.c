@@ -1,6 +1,12 @@
 #include "main.h"
 #include "lists.h"
 
+/**
+ * functions - a function pointer
+ * 
+ * @str: double pointer as an argument to the function
+ * Return: void 
+ */
 void (*functions(char **str))(stack_t **, unsigned int)
 {
     instruction_t instruction [] = {
