@@ -14,19 +14,18 @@ void (*functions(char **str))(stack_t **, unsigned int)
 		{"pint", pint},
 		{"stack", stack_flag},
 		{"queue", queue_flag},
-		{NULL, NULL}
-	};
+		{NULL, NULL}};
 
 	int i;
 	int size = 4;
 
 	for (i = 0; i < size; i++)
+	{
+		if (strcmp(str[0], instruction[i].opcode) == 0)
 		{
-			if (strcmp(str[0], instruction[i].opcode) == 0)
-			{
-				return (instruction[i].f);
-			}
+			return (instruction[i].f);
 		}
+	}
 	return (NULL);
 }
 
