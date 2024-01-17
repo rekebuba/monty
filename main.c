@@ -1,7 +1,7 @@
 #include "main.h"
 #include "lists.h"
 
-data_t data = {NULL, NULL, NULL, NULL, 0, 0};
+data_t data = {NULL, NULL, NULL, NULL, 0, 0, 0};
 
 int main(int argc, char **args)
 {
@@ -104,11 +104,53 @@ void push(stack_t **head, unsigned int line)
     stack_t *new;
     data.value = convert(data.word[1]);
     //add_node_beg(head, data.value);
-    if (data.file == 0)
+    if (data.flag == 0)
 		add_node_beg(head, data.value);
-	//else if (data.file == 1)
-		//add_dnodeint_end(head, data.value);
-        
+	else if (data.flag == 1)
+		add_node_end(head, data.value);
+}
+
+void stack_flag(stack_t **stack, unsigned int line)
+{
+    (void)stack;
+	(void)line;
+    data.flag = 0;
+}
+
+void queue_flag(stack_t **stack, unsigned int line)
+{
+    (void)stack;
+	(void)line;
+    data.flag = 0;
+}
+
+void add_node_end(stack_t **head, int value)
+{
+    stack_t *ptr = *head;
+	stack_t *new_node = malloc(sizeof(stack_t));
+
+	if (new_node == NULL)
+		exit(EXIT_FAILURE);
+
+	if (ptr == NULL)
+	{
+		new_node->n = value;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		*head = new_node;
+	}
+
+	while (ptr->next != NULL)
+	{
+		ptr = ptr->next;
+	}
+
+	new_node->n = value;
+	new_node->next = NULL;
+
+	ptr->next = new_node;
+	new_node->prev = ptr;
+
 }
 
 void add_node_beg(stack_t **head, int value)

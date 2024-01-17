@@ -19,6 +19,7 @@ typedef struct data_s
     stack_t *stack;
     int line_count;
     int value;
+    int flag;
 }data_t;
 
 extern data_t data;
@@ -33,7 +34,10 @@ int count_word(char *s);
 void (*functions(char **str))(stack_t **, unsigned int);
 void removeWhiteSpace(char *str);
 void add_node_beg(stack_t **head, int value);
+void add_node_end(stack_t **head, int value);
 void free_stack(int value);
 void free_list(stack_t *head);
+void stack_flag(stack_t **stack, unsigned int line);
+void queue_flag(stack_t **stack, unsigned int line);
 
 #endif
