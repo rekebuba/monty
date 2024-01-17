@@ -34,6 +34,8 @@ void swap(stack_t **stack, unsigned int line);
 void add(stack_t **stack, unsigned int line);
 void nop(stack_t **stack, unsigned int line);
 void sub(stack_t **stack, unsigned int line);
+void mul(stack_t **stack, unsigned int line);
+void mod(stack_t **stack, unsigned int line);
 void division(stack_t **stack, unsigned int line);
 int convert(char *str);
 char **tokenize(char *str);
