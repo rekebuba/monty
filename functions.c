@@ -11,6 +11,7 @@ void (*functions(char **str))(stack_t **, unsigned int)
 	instruction_t instruction[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{"stack", stack_flag},
 		{"queue", queue_flag},
 		{NULL, NULL}

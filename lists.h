@@ -28,6 +28,7 @@ extern data_t data;
 void requirement(int argc, char **args);
 void push(stack_t **stack, unsigned int line);
 void pall(stack_t **stack, unsigned int line);
+void pint(stack_t **stack, unsigned int line);
 int convert(char *str);
 char **tokenize(char *str);
 int count_word(char *s);
