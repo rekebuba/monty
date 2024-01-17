@@ -13,14 +13,14 @@ void (*functions(char **str))(stack_t **, unsigned int)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{"stack", stack_flag},
 		{"queue", queue_flag},
 		{NULL, NULL}};
 
 	int i;
-	int size = 4;
 
-	for (i = 0; i < size; i++)
+	for (i = 0; instruction[i].opcode; i++)
 	{
 		if (strcmp(str[0], instruction[i].opcode) == 0)
 		{
