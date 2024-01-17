@@ -58,13 +58,8 @@ void swap(stack_t **stack, unsigned int line)
 	stack_t *ptr = *stack;
 	stack_t *ptr2 = *stack;
 	stack_t *temp;
-	int count = 0;
+	int count = nod_len(stack);
 
-	while (ptr != NULL)
-	{
-		count++;
-		ptr = ptr->next;
-	}
 	if (count < 2)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
@@ -90,4 +85,46 @@ void swap(stack_t **stack, unsigned int line)
 		ptr->next = temp;
 		*stack = ptr2;
 	}
+}
+
+/**
+ * nod_len - returns the number of elements in a linked  list.
+ * @h: double node
+ * Return: size_t
+ */
+int nod_len(stack_t **stack)
+{
+	int count = 0;
+	stack_t *temp = *stack;
+
+	while (temp != NULL)
+	{
+		count++;
+		temp = temp->next;
+	}
+	return (count);
+}
+
+
+/**
+ * add - adds the top two elements of the stack
+ * @stack: pointer to the node
+ * @line: number of the line in the file
+ */
+void add(stack_t **stack, unsigned int line)
+{
+	stack_t *ptr = *stack;
+	int count = nod_len(stack);
+	int sum = 0;
+	if (count < 2)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line);
+		free_stack(1);
+		exit(EXIT_FAILURE);
+	}
+
+	sum = ptr->n + ptr->next->n;
+	pop(stack, line);
+	ptr = *stack;
+	ptr->n = sum;
 }

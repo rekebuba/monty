@@ -31,6 +31,7 @@ void pall(stack_t **stack, unsigned int line);
 void pint(stack_t **stack, unsigned int line);
 void pop(stack_t **stack, unsigned int line);
 void swap(stack_t **stack, unsigned int line);
+void add(stack_t **stack, unsigned int line);
 int convert(char *str);
 char **tokenize(char *str);
 int count_word(char *s);
@@ -43,6 +44,7 @@ void free_list(stack_t *head);
 void stack_flag(stack_t **stack, unsigned int line);
 void queue_flag(stack_t **stack, unsigned int line);
 
+int nod_len(stack_t **stack);
 int count_word(char *s);
 ssize_t get_line(char **line_ptr, size_t *n, FILE *stream);
 

@@ -14,6 +14,7 @@ void (*functions(char **str))(stack_t **, unsigned int)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"add", add},
 		{"stack", stack_flag},
 		{"queue", queue_flag},
 		{NULL, NULL}};
