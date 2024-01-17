@@ -27,6 +27,7 @@ void pop(stack_t **stack, unsigned int line)
 {
 	stack_t *ptr = *stack;
 	stack_t *ptr2 = *stack;
+
 	if (ptr == NULL)
 	{
 		fprintf(stdout, "L%d: can't pop an empty stack\n", line);
