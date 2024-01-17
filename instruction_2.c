@@ -35,6 +35,7 @@ void pop(stack_t **stack, unsigned int line)
 	}
 	if (ptr->next == NULL)
 	{
+		free(ptr);
 		*stack = NULL;
 	}
 	else
@@ -42,7 +43,6 @@ void pop(stack_t **stack, unsigned int line)
 		ptr2 = ptr2->next;
 		ptr2->prev = NULL;
 		*stack = ptr2;
-		ptr = NULL;
+		free(ptr);
 	}
 }
-
