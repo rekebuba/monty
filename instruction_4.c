@@ -68,7 +68,7 @@ void pstr(stack_t **stack, unsigned int line)
 }
 
 /**
- * rotl - The top element of the stack becomes the last one, 
+ * rotl - The top element of the stack becomes the last one,
  * and the second top element of the stack becomes the first one
  * @stack: pointer to the node
  * @line: number of the line in the file
