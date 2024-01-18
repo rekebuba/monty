@@ -47,7 +47,7 @@ void pint(stack_t **stack, unsigned int line)
 		free_stack(1);
 		fprintf(stderr, "L%d: can't pint, stack empty", line);
 	}
-	fprintf(stdout, "%d\n", ptr->n);
+	printf("%d\n", ptr->n);
 }
 
 /**
@@ -118,4 +118,3 @@ void swap(stack_t **stack, unsigned int line)
 		*stack = ptr2;
 	}
 }
-
