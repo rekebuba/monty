@@ -75,5 +75,13 @@ void pstr(stack_t **stack, unsigned int line)
  */
 void rotl(stack_t **stack, unsigned int line)
 {
-	
+	stack_t *ptr1 = *stack;
+
+	if (ptr1 == NULL)
+	{
+		return;
+	}
+
+	add_node_end(stack, ptr1->n);
+	pop(stack, line);
 }
