@@ -1,4 +1,3 @@
-#include "main.h"
 #include "monty.h"
 
 data_t data = {NULL, NULL, NULL, NULL, 0, 0, 0};
@@ -39,7 +38,7 @@ void requirement(int argc, char **args)
 		exit(EXIT_FAILURE);
 	}
 
-	while (get_line(&(data.line), &len, data.file) != EOF)
+	while (getline(&(data.line), &len, data.file) != EOF)
 	{
 		data.line_count++;
 		removeWhiteSpace(data.line);

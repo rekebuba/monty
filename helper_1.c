@@ -1,5 +1,66 @@
-#include "main.h"
 #include "monty.h"
+
+/**
+ * removeWhiteSpace - helper function used to remove white space
+ * @str: the string passed
+ * Return: void
+ */
+void removeWhiteSpace(char *str)
+{
+	char *p1 = str; /* pointer to iterate through the input string */
+	char *p2 = str; /* pointer to write the non-space characters to */
+	bool space = false;
+
+	while (isspace(*p1))
+	{
+		p1++;
+	}
+
+	while (*p1 != '\0')
+	{
+		if (isspace(*p1))
+		{
+			if (!space)
+			{
+				*p2 = *p1;
+				p2++;
+				space = true;
+			}
+		}
+		else
+		{
+			*p2 = *p1;
+			p2++;
+			space = false;
+		}
+		p1++;
+	}
+
+	if (isspace(*(p2 - 1)))
+	{
+		*(p2 - 1) = '\0';
+	}
+
+	*p2 = '\0';
+}
+
+/**
+ * nod_len - returns the number of elements in a linked  list.
+ * @stack: double node
+ * Return: size_t
+ */
+int nod_len(stack_t **stack)
+{
+	int count = 0;
+	stack_t *temp = *stack;
+
+	while (temp != NULL)
+	{
+		count++;
+		temp = temp->next;
+	}
+	return (count);
+}
 
 /**
  * tokenize - used to tokenize the argument that is passed
@@ -105,55 +166,4 @@ int count_word(char *s)
 	}
 
 	return (w);
-}
-
-/**
- * get_line - Get the line object
- * @line_ptr: double pointer
- * @n: unsigned int
- * @stream: file stream
- * Return: ssize_t
- */
-ssize_t get_line(char **line_ptr, size_t *n, FILE *stream)
-{
-	size_t len = 0;
-	int c;
-	char *temp, *line = NULL;
-
-	if (line_ptr == NULL || n == NULL)
-		return (-1);
-	do {
-		c = fgetc(stream);
-		if (c == EOF)
-			break;
-		if (len == 0)
-		{
-			*n = 16;
-			line = malloc(*n);
-			if (line == NULL)
-				return (-1);
-		}
-		line[len++] = c;
-		if (c == '\n')
-			break;
-		if (len == *n)
-		{
-			*n *= 2;
-			temp = realloc(line, *n);
-			if (temp == NULL)
-			{
-				free(line);
-				return (-1);
-			}
-			line = temp;
-		}
-	} while (1);
-	if (len == 0)
-	{
-		free(line);
-		return (-1);
-	}
-	line[len] = '\0';
-	*line_ptr = line;
-	return (len);
 }
