@@ -28,14 +28,14 @@ void pchar(stack_t **stack, unsigned int line)
 }
 
 /**
- * pstr - 
+ * pstr - prints the string starting at the top of the stack
  * @stack: pointer to the node
  * @line: number of the line in the file
  */
 void pstr(stack_t **stack, unsigned int line)
 {
 	stack_t *ptr = *stack;
-	char *result = malloc((nod_len(stack) + 1)* sizeof(char));
+	char *result = malloc((nod_len(stack) + 1) * sizeof(char));
 	int index = 0;
 	char asci;
 	(void)line;
@@ -51,7 +51,7 @@ void pstr(stack_t **stack, unsigned int line)
 	}
 	else
 	{
-		while(1)
+		while (1)
 		{
 			if (ptr == NULL || ptr->n == 0 || (ptr->n < 'A' || ptr->n > 'z'))
 			{
