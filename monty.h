@@ -94,7 +94,6 @@ void stack_flag(stack_t **stack, unsigned int line);
 void queue_flag(stack_t **stack, unsigned int line);
 
 /********** helper_1.c **********/
-void removeWhiteSpace(char *str);
 int nod_len(stack_t **stack);
 char **tokenize(char *str);
 int convert(char *str);

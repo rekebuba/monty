@@ -41,7 +41,6 @@ void requirement(int argc, char **args)
 	while (getline(&(data.line), &len, data.file) != EOF)
 	{
 		data.line_count++;
-		removeWhiteSpace(data.line);
 		data.word = tokenize(data.line);
 		if (data.word[0] == NULL || data.word[0][0] == '#')
 		{

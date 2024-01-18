@@ -1,50 +1,6 @@
 #include "monty.h"
 
 /**
- * removeWhiteSpace - helper function used to remove white space
- * @str: the string passed
- * Return: void
- */
-void removeWhiteSpace(char *str)
-{
-	char *p1 = str; /* pointer to iterate through the input string */
-	char *p2 = str; /* pointer to write the non-space characters to */
-	bool space = false;
-
-	while (isspace(*p1))
-	{
-		p1++;
-	}
-
-	while (*p1 != '\0')
-	{
-		if (isspace(*p1))
-		{
-			if (!space)
-			{
-				*p2 = *p1;
-				p2++;
-				space = true;
-			}
-		}
-		else
-		{
-			*p2 = *p1;
-			p2++;
-			space = false;
-		}
-		p1++;
-	}
-
-	if (isspace(*(p2 - 1)))
-	{
-		*(p2 - 1) = '\0';
-	}
-
-	*p2 = '\0';
-}
-
-/**
  * nod_len - returns the number of elements in a linked  list.
  * @stack: double node
  * Return: size_t
@@ -118,9 +74,8 @@ char **tokenize(char *str)
 int convert(char *str)
 {
 	int i = 0;
-	int len = strlen(str);
 
-	if (len == 0)
+	if (str == NULL)
 	{
 		fprintf(stderr, "L%d: usage: %s integer\n",
 		data.line_count, data.word[0]);
