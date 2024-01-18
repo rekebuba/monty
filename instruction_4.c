@@ -85,3 +85,13 @@ void rotl(stack_t **stack, unsigned int line)
 	add_node_end(stack, ptr1->n);
 	pop(stack, line);
 }
+
+/**
+ * rotr - rotates the stack to the bottom.
+ * @stack: pointer to the node
+ * @line: number of the line in the file
+ */
+void rotr(stack_t **stack, unsigned int line)
+{
+	
+}

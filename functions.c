@@ -22,6 +22,7 @@ void (*functions(char **str))(stack_t **, unsigned int)
 		{"pchar", pchar},
 		{"pstr", pstr},
 		{"rotl", rotl},
+		{"rotr", rotr},
 		{"nop", nop},
 		{"stack", stack_flag},
 		{"queue", queue_flag},
