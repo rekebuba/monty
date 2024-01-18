@@ -52,6 +52,7 @@ void add_node_end(stack_t **head, int value)
 		new_node->next = NULL;
 		new_node->prev = NULL;
 		*head = new_node;
+		return;
 	}
 
 	while (ptr->next != NULL)
@@ -64,7 +65,6 @@ void add_node_end(stack_t **head, int value)
 
 	ptr->next = new_node;
 	new_node->prev = ptr;
-
 }
 
 /**

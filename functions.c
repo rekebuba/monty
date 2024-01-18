@@ -61,5 +61,5 @@ void queue_flag(stack_t **stack, unsigned int line)
 {
 	(void)stack;
 	(void)line;
-	data.flag = 0;
+	data.flag = 1;
 }
