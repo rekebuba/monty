@@ -47,7 +47,7 @@ void pint(stack_t **stack, unsigned int line)
 		free_stack(1);
 		fprintf(stderr, "L%d: can't pint, stack empty", line);
 	}
-	printf("%d\n", ptr->n);
+	fprintf(stdout, "%d\n", ptr->n);
 }
 
 /**
