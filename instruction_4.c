@@ -47,7 +47,7 @@ void pstr(stack_t **stack, unsigned int line)
 	}
 	if (ptr == NULL)
 	{
-		fprintf(stdout, "\n");
+		fprintf(stderr, "\n");
 	}
 	else
 	{
