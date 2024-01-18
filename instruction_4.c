@@ -17,13 +17,13 @@ void pchar(stack_t **stack, unsigned int line)
 		free_stack(1);
 		exit(EXIT_FAILURE);
 	}
-	asci = ptr->n;
-	if (asci < 'A' || asci > 'z')
+	if (ptr->n < 0 || ptr->n > 127)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
 		free_stack(1);
 		exit(EXIT_FAILURE);
 	}
+	asci = ptr->n;
 	fprintf(stdout, "%c\n", asci);
 }
 
@@ -47,13 +47,13 @@ void pstr(stack_t **stack, unsigned int line)
 	}
 	if (ptr == NULL)
 	{
-		fprintf(stderr, "\n");
+		fprintf(stdout, "\n");
 	}
 	else
 	{
 		while (1)
 		{
-			if (ptr == NULL || ptr->n == 0 || (ptr->n < 'A' || ptr->n > 'z'))
+			if (ptr == NULL || ptr->n == 0 || (ptr->n < 0 || ptr->n > 127))
 			{
 				break;
 			}
