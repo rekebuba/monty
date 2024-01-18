@@ -93,5 +93,23 @@ void rotl(stack_t **stack, unsigned int line)
  */
 void rotr(stack_t **stack, unsigned int line)
 {
-	
+	stack_t *ptr2 = *stack;
+	stack_t *ptr1;
+	(void) line;
+
+	if (ptr2 == NULL)
+	{
+		return;
+	}
+
+	while (ptr2->next != NULL)
+	{
+		ptr2 = ptr2->next;
+	}
+
+	add_node_beg(stack, ptr2->n);
+	ptr1 = ptr2->prev;
+	ptr1->next = NULL;
+	free(ptr2);
+
 }
