@@ -31,5 +31,8 @@
         "tuple": "c",
         "type_traits": "c",
         "stdlib.h": "c"
-    }
+    },
+    "cSpell.words": [
+        "pchar"
+    ]
 }

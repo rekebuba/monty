@@ -37,6 +37,7 @@ void sub(stack_t **stack, unsigned int line);
 void mul(stack_t **stack, unsigned int line);
 void mod(stack_t **stack, unsigned int line);
 void division(stack_t **stack, unsigned int line);
+void pchar(stack_t **stack, unsigned int line);
 int convert(char *str);
 char **tokenize(char *str);
 int count_word(char *s);
