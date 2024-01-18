@@ -20,6 +20,7 @@ void (*functions(char **str))(stack_t **, unsigned int)
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
+		{"pstr", pstr},
 		{"nop", nop},
 		{"stack", stack_flag},
 		{"queue", queue_flag},
